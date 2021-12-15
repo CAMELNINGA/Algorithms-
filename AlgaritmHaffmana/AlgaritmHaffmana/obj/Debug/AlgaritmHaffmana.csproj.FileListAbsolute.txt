@@ -1,0 +1,7 @@
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\obj\Debug\AlgaritmHaffmana.csproj.AssemblyReference.cache
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\obj\Debug\AlgaritmHaffmana.csproj.CoreCompileInputs.cache
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\bin\Debug\AlgaritmHaffmana.exe.config
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\bin\Debug\AlgaritmHaffmana.exe
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\bin\Debug\AlgaritmHaffmana.pdb
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\obj\Debug\AlgaritmHaffmana.exe
+D:\Data\TIC\AlgaritmHaffmana\AlgaritmHaffmana\obj\Debug\AlgaritmHaffmana.pdb
