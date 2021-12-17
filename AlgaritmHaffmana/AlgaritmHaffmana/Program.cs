@@ -15,7 +15,7 @@ namespace AlgaritmHaffmana
             Reader read = new Reader();
             List<TreeNode> node = read.Count(c);
             Haffman haffman = new Haffman(node);
-          
+            
             
             
         }

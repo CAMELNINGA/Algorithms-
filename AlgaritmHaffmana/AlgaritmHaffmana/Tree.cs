@@ -19,19 +19,28 @@ namespace AlgaritmHaffmana
             this.Data = data;
         }
 
-        public Tree<T> AddChild(T child)
+        private void AddParent(Tree<T> parent)
+        {
+            if (this.Parent != null)
+            {
+                this.Parent = parent;
+            }
+            
+        }
+
+        public Tree<T> AddChild(Tree<T> child)
         {
 
             
             if (this.Children1 == null)
             {
-                Tree<T> childNode = new Tree<T>(child) { Parent = this };
-                this.Children1 = childNode;        
+                child.AddParent(this);
+                this.Children1 = child;        
             }
             else if (this.Children2 == null)
             {
-                Tree<T> childNode = new Tree<T>(child) { Parent = this };
-                this.Children1 = childNode;
+                child.AddParent(this);
+                this.Children1 = child;
             }
             return this;
 
@@ -48,7 +57,33 @@ namespace AlgaritmHaffmana
         {
             throw new NotImplementedException();
         }
-      
+        
+        public (Tree<T>,Dictionary<T, string>, string) ReadTree(Tree<T> node, Dictionary<T , string> keyValues, string code)
+        {
+            Console.WriteLine(code);
+            if (node.Children1 != null)
+            {
+                code += "0";
+                Console.WriteLine("Code1={0}", code);
+                (node, keyValues, code)= ReadTree(node.Children1,keyValues,code);
+                code.Remove(code.Length-1);
+            }
+            if (node.Children2 != null)
+            {
+                code += "1";
+                Console.WriteLine("Code2={0}", code);
+                (node, keyValues, code) = ReadTree(node.Children2, keyValues, code);
+                code.Remove(code.Length - 1);
+            }
+
+            if ((node.Children1 == null) && (node.Children2 == null))
+            {
+                Console.WriteLine("Code={0}", code);
+                keyValues.Add(Data, code);
+            }
+            return (node.Parent, keyValues, code);
+
+        }
         
        
     }

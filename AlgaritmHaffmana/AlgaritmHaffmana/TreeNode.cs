@@ -29,7 +29,7 @@ namespace AlgaritmHaffmana
 
         public void UpFreeq(int k)
         {
-            Console.WriteLine(k);
+            
             Frequency = k;
         }
     }
