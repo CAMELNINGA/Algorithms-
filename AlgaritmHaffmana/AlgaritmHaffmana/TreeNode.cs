@@ -27,10 +27,11 @@ namespace AlgaritmHaffmana
             Code = str + Code;
         } 
 
-        public void UpFreeq(int k)
+        public TreeNode UpFreeq(int k)
         {
             
             Frequency = k;
+            return this;
         }
     }
 }

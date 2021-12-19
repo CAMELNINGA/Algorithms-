@@ -17,11 +17,13 @@ namespace AlgaritmHaffmana
         public Tree(T data)
         {
             this.Data = data;
+            this.Children1 = null;
+            this.Children2 = null;
         }
 
         private void AddParent(Tree<T> parent)
         {
-            if (this.Parent != null)
+            if (this.Parent == null)
             {
                 this.Parent = parent;
             }
@@ -37,10 +39,10 @@ namespace AlgaritmHaffmana
                 child.AddParent(this);
                 this.Children1 = child;        
             }
-            else if (this.Children2 == null)
+            else 
             {
                 child.AddParent(this);
-                this.Children1 = child;
+                this.Children2 = child;
             }
             return this;
 
@@ -59,27 +61,27 @@ namespace AlgaritmHaffmana
         }
         
         public (Tree<T>,Dictionary<T, string>, string) ReadTree(Tree<T> node, Dictionary<T , string> keyValues, string code)
-        {
-            Console.WriteLine(code);
-            if (node.Children1 != null)
+       {
+            
+            if (node.Children1 !=  null)
             {
-                code += "0";
-                Console.WriteLine("Code1={0}", code);
+                code =code+ "0";
+                Console.WriteLine("Code_0={0}", code);
                 (node, keyValues, code)= ReadTree(node.Children1,keyValues,code);
-                code.Remove(code.Length-1);
+                code=code.Remove(code.Length-1);
             }
             if (node.Children2 != null)
             {
-                code += "1";
-                Console.WriteLine("Code2={0}", code);
+                code =code+ "1";
+                Console.WriteLine("Code_1={0}", code);
                 (node, keyValues, code) = ReadTree(node.Children2, keyValues, code);
-                code.Remove(code.Length - 1);
+                code=code.Remove(code.Length-1);
             }
 
             if ((node.Children1 == null) && (node.Children2 == null))
             {
                 Console.WriteLine("Code={0}", code);
-                keyValues.Add(Data, code);
+                keyValues.Add(node.Data, code);
             }
             return (node.Parent, keyValues, code);
 
