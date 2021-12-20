@@ -32,5 +32,15 @@ namespace AlgaritmHaffmana
             node = node.OrderBy(n=>n.Frequency).ToList();
             return node;
         }
+
+        public string  Coding(string text , Dictionary<TreeNode, string> keyValues)
+        {
+            foreach (KeyValuePair<TreeNode, string> coding in keyValues)
+            {
+                text = text.Replace(Convert.ToString(coding.Key.Chars),coding.Value);
+            }
+
+            return text;
+        }
     }
 }

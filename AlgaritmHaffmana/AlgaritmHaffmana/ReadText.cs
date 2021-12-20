@@ -42,28 +42,20 @@ namespace AlgaritmHaffmana
             }
         }
 
-         public void  WriteText()
+         public void  WriteText(string dictonary, string text )
         {
-            string path = "D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\";
+            string path = "D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_"+DateTime.Now.Hour+ ".txt";
             try
             {
                 // Create the file, or overwrite if the file exists.
                 using (FileStream fs = File.Create(path))
                 {
-                    byte[] info = new UTF8Encoding(true).GetBytes("This is some text in the file.");
+                    byte[] info = new UTF8Encoding(true).GetBytes(dictonary+"\n\n"+text);
                     // Add some information to the file.
                     fs.Write(info, 0, info.Length);
                 }
 
-                // Open the stream and read it back.
-                using (StreamReader sr = File.OpenText(path))
-                {
-                    string s = "";
-                    while ((s = sr.ReadLine()) != null)
-                    {
-                        Console.WriteLine(s);
-                    }
-                }
+                
             }
 
             catch (Exception ex)

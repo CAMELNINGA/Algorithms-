@@ -8,25 +8,27 @@ namespace AlgaritmHaffmana
 {
     class Haffman
     {
+        public string Dictinor { get; set; }
+        public Dictionary<TreeNode,string> keyValues { get; set; }
         
         public   Haffman(List<TreeNode> treeNodes)
         {
             List<Tree<TreeNode>> tree = new List<Tree<TreeNode>>();
             for(int i = 0; i < treeNodes.Count; i++)
             {
-                tree.Add(new Tree<TreeNode>(treeNodes[i]));
-              
+                tree.Add(new Tree<TreeNode>(treeNodes[i]));   
             }
             Tree<TreeNode>haffman =Start(tree);
             Dictionary<TreeNode, string> code = new Dictionary<TreeNode, string>();
             string node_code= "";
             (haffman, code, node_code) = haffman.ReadTree(haffman, code, node_code);
-            Console.WriteLine("Count ={0}",code.Count);
-            foreach (KeyValuePair < TreeNode ,string > coding in code){
-                Console.WriteLine("Key = {0},Frequency={1}, Value = {2}", coding.Key.Chars,coding.Key.Frequency, coding.Value);
-            }
-            Console.ReadLine();
 
+            string dictionary = "";
+            foreach (KeyValuePair < TreeNode ,string > coding in code){
+                dictionary =dictionary+ coding.Key.Chars+":"+ coding.Value+";";
+            }
+            Dictinor = dictionary;
+            keyValues = code;
         }
         private Tree<TreeNode> Start(List<Tree<TreeNode>> node)
         {

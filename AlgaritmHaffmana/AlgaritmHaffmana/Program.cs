@@ -14,7 +14,7 @@ namespace AlgaritmHaffmana
             string s;
             string exept;
             ReadText text = new ReadText();
-            text.WriteText();
+            
             (s, exept) = text.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\testText.txt");
             if (exept == null)
             {
@@ -23,7 +23,9 @@ namespace AlgaritmHaffmana
                 Reader read = new Reader();
                 List<TreeNode> node = read.Count(c);
                 Haffman haffman = new Haffman(node);
-
+                string code = read.Coding(s, haffman.keyValues);
+                text.WriteText(haffman.Dictinor, code);
+                Console.ReadLine();
             }
             else
             {
