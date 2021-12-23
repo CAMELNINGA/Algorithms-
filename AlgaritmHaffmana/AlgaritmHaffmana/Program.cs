@@ -18,7 +18,7 @@ namespace AlgaritmHaffmana
             (s, exept) = text.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\testText.txt");
             if (exept == null)
             {
-                Console.WriteLine("text={0}", s);
+                
                 char[] c = s.ToCharArray();
                 Reader read = new Reader();
                 List<TreeNode> node = read.Count(c);

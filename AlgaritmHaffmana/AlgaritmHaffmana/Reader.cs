@@ -33,14 +33,28 @@ namespace AlgaritmHaffmana
             return node;
         }
 
-        public string  Coding(string text , Dictionary<TreeNode, string> keyValues)
+        public string  Coding(string text , Dictionary<TreeNode, string> dictionary)
         {
-            foreach (KeyValuePair<TreeNode, string> coding in keyValues)
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            foreach (KeyValuePair<TreeNode,string> i in dictionary)
             {
-                text = text.Replace(Convert.ToString(coding.Key.Chars),coding.Value);
+                d.Add(i.Key.Chars.ToString(), i.Value);
             }
+            string line;
+            string decode = "";
+            while (text != "")
+            {
+                line = text[0].ToString();
+                text = text.Remove(0, 1);
+                while (!d.ContainsKey(line))
+                {
+                    line = line + text[0].ToString();
+                    text = text.Remove(0, 1);
 
-            return text;
+                }
+                decode += d[line];
+            }
+            return decode;
         }
     }
 }

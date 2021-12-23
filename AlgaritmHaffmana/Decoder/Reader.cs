@@ -7,53 +7,59 @@ namespace Decoder
 {
     class Reader
     {
-        public (string,string, string) Readtext(string filepath)
+        public (List<string>, string) Readtext(string filepath)
         {
             String line;
-            String text = "";
-            String codtext = "";
+            List<string>line1 = new List<string>();
+          
             try
             {
                 //Pass the file path and file name to the StreamReader constructor
                 StreamReader sr = new StreamReader(filepath);
                 //Read the first line of text
                 line = sr.ReadLine();
-                text = line;
+                
                 //Continue to read until you reach end of file
                 while (line != null)
                 {
-                    
-                   
+
+                    line1.Add(line);
                     //Read the next line
                     line = sr.ReadLine();
-                    if (line == "")
-                    {
-                        line = null;
-                        line = sr.ReadLine();
-                        codtext = line;
-                        while((line != null))
-                        {
-                            line = sr.ReadLine();
-                            codtext = codtext+line;
-                        }
-
-                    }
-                    else
-                    {
-                        text = text +"\n"+ line;
-                    }
+                    
                     
 
                 }
 
                 //close the file
                 sr.Close();
-                return (text, codtext,null);
+                return (line1,null);
             }
             catch (Exception e)
             {
-                return (null, null,"Exception: " + e.Message);
+                return (null,"Exception: " + e.Message);
 
+            }
+        }
+        public void WriteDecode(string text)
+        {
+            string path = "D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\decode_" + DateTime.Now.Hour + ".txt";
+            try
+            {
+                // Create the file, or overwrite if the file exists.
+                using (FileStream fs = File.Create(path))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes( text);
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+                Console.WriteLine(path);
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
     }

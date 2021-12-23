@@ -25,7 +25,7 @@ namespace AlgaritmHaffmana
 
             string dictionary = "";
             foreach (KeyValuePair < TreeNode ,string > coding in code){
-                dictionary =dictionary+ coding.Key.Chars+":"+ coding.Value+";";
+                dictionary =dictionary+ coding.Key.Chars+ coding.Value+"\n";
             }
             Dictinor = dictionary;
             keyValues = code;
@@ -41,8 +41,7 @@ namespace AlgaritmHaffmana
                 tree.AddChild(node[1]);
 
                 tree.Data=tree.Data.UpFreeq(node[0].Data.Frequency + node[1].Data.Frequency);
-                Console.WriteLine(node[0].Data.Frequency + node[1].Data.Frequency);
-                Console.WriteLine(tree.Data.Frequency);
+               
                 node.RemoveAt(1);
                
                 node.RemoveAt(0);

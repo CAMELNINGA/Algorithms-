@@ -66,21 +66,21 @@ namespace AlgaritmHaffmana
             if (node.Children1 !=  null)
             {
                 code =code+ "0";
-                Console.WriteLine("Code_0={0}", code);
+                
                 (node, keyValues, code)= ReadTree(node.Children1,keyValues,code);
                 code=code.Remove(code.Length-1);
             }
             if (node.Children2 != null)
             {
                 code =code+ "1";
-                Console.WriteLine("Code_1={0}", code);
+               
                 (node, keyValues, code) = ReadTree(node.Children2, keyValues, code);
                 code=code.Remove(code.Length-1);
             }
 
             if ((node.Children1 == null) && (node.Children2 == null))
             {
-                Console.WriteLine("Code={0}", code);
+               
                 keyValues.Add(node.Data, code);
             }
             return (node.Parent, keyValues, code);

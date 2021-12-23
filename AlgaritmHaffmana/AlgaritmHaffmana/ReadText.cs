@@ -24,7 +24,7 @@ namespace AlgaritmHaffmana
                 while (line != null)
                 {
                     //write the line to console window
-                    Console.WriteLine(line);
+                  
                     //Read the next line
                     line= sr.ReadLine();
                     text = text+"\n" + line;
@@ -50,7 +50,7 @@ namespace AlgaritmHaffmana
                 // Create the file, or overwrite if the file exists.
                 using (FileStream fs = File.Create(path))
                 {
-                    byte[] info = new UTF8Encoding(true).GetBytes(dictonary+"\n\n"+text);
+                    byte[] info = new UTF8Encoding(true).GetBytes(dictonary+text);
                     // Add some information to the file.
                     fs.Write(info, 0, info.Length);
                 }
