@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Deveel.Math;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,10 +10,10 @@ namespace Arithmetic
         public char Chars { get; set; }
         public int Frequency { get; set; }
         
-        public double Low { get; set; }
-        public double High { get; set; }
+        public BigDecimal Low { get; set; }
+        public BigDecimal High { get; set; }
 
-        public double Range { get; set; }
+        public BigDecimal Range { get; set; }
 
         public Node(char chars, int frequency)
         {
@@ -23,11 +24,6 @@ namespace Arithmetic
         }
 
 
-        public Node UpFreeq(int k)
-        {
-
-            Frequency = k;
-            return this;
-        }
+       
     }
 }

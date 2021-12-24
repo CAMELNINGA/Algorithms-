@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Deveel.Math;
 
 namespace Arithmetic
 {
@@ -22,7 +23,13 @@ namespace Arithmetic
                 {
                     Console.WriteLine("Char={0} Frequency={1} Range={2:R}", i.Chars, i.Frequency ,i.Range);
                 }
-              
+                Arithmetic arithmetic = new Arithmetic(node);
+                arithmetic.Start(c);
+                BigDecimal low;
+                BigDecimal high;
+                (low, high) = arithmetic.Count();
+                Console.WriteLine("low={0}", low);
+                Console.WriteLine("high={0}", high);
             }
             else
             {

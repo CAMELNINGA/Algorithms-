@@ -25,7 +25,7 @@ namespace Arithmetic
 
                     //Read the next line
                     line = sr.ReadLine();
-                    text = text + "\n" + line;
+                    text = text + line;
 
                 }
 

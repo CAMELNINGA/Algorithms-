@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Deveel.Math;
+
 
 namespace Arithmetic
 {
@@ -34,11 +36,11 @@ namespace Arithmetic
         }
         private List<Node> AddRangeNode( int lengh)
         {
-            double low = 0;
+            BigDecimal low = 0;
              foreach (Node node in nodes)
             {
-                node.Range = Math.Round(((double)(node.Frequency) / (lengh)), 3);
-                node.Low = Math.Round(low, 3);
+                node.Range = Math.Round((double)node.Frequency/lengh ,3);
+                node.Low = low;
                 low += node.Range;
                 node.High = low;  
             }
