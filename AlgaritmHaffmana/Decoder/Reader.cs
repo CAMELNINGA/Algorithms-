@@ -53,7 +53,7 @@ namespace Decoder
                     // Add some information to the file.
                     fs.Write(info, 0, info.Length);
                 }
-                Console.WriteLine(path);
+                 
 
             }
 

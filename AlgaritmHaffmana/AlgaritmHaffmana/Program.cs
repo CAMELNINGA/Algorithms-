@@ -15,7 +15,7 @@ namespace AlgaritmHaffmana
             string exept;
             ReadText text = new ReadText();
             
-            (s, exept) = text.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\testText.txt");
+            (s, exept) = text.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\test.txt");
             if (exept == null)
             {
                 

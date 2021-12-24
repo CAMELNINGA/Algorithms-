@@ -10,7 +10,7 @@ namespace Decoder
             string code, text,e;
             List<string> line = new List<string>();
             Reader reader = new Reader();
-            (line, e) = reader.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_3.txt");
+            (line, e) = reader.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_0.txt");
             if (e == null)
             {
                
