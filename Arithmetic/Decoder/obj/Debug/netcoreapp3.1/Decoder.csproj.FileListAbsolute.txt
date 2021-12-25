@@ -1,0 +1,14 @@
+D:\Data\TIC\Arithmetic\Decoder\bin\Debug\netcoreapp3.1\Decoder.exe
+D:\Data\TIC\Arithmetic\Decoder\bin\Debug\netcoreapp3.1\Decoder.deps.json
+D:\Data\TIC\Arithmetic\Decoder\bin\Debug\netcoreapp3.1\Decoder.runtimeconfig.json
+D:\Data\TIC\Arithmetic\Decoder\bin\Debug\netcoreapp3.1\Decoder.runtimeconfig.dev.json
+D:\Data\TIC\Arithmetic\Decoder\bin\Debug\netcoreapp3.1\Decoder.dll
+D:\Data\TIC\Arithmetic\Decoder\bin\Debug\netcoreapp3.1\Decoder.pdb
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.csproj.AssemblyReference.cache
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.GeneratedMSBuildEditorConfig.editorconfig
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.AssemblyInfoInputs.cache
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.AssemblyInfo.cs
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.csproj.CoreCompileInputs.cache
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.dll
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.pdb
+D:\Data\TIC\Arithmetic\Decoder\obj\Debug\netcoreapp3.1\Decoder.genruntimeconfig.cache

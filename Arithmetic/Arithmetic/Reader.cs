@@ -36,12 +36,12 @@ namespace Arithmetic
         }
         private List<Node> AddRangeNode( int lengh)
         {
-            BigDecimal low = 0;
+            decimal low = 0;
              foreach (Node node in nodes)
             {
-                node.Range = Math.Round((double)node.Frequency/lengh ,3);
+                node.Range = (double)node.Frequency/lengh ;
                 node.Low = low;
-                low += node.Range;
+                low += (decimal)node.Range;
                 node.High = low;  
             }
             return nodes;

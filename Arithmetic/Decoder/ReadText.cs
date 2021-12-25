@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Arithmetic
+namespace Decoder
 {
     class ReadText
     {
         public string path { get; set; }
-        private StreamReader _sr {get;set;}
+        private StreamReader _sr { get; set; }
         public ReadText()
         {
-            path = "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\codfile_" + DateTime.Now.Hour + ".txt";
+            path = "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\decodfile_" + DateTime.Now.Hour + ".txt";
         }
-        public void CrStreamReader (string filepath)
+        public void CrStreamReader(string filepath)
         {
             StreamReader sr = new StreamReader(filepath);
             _sr = sr;
@@ -25,13 +25,13 @@ namespace Arithmetic
         public (string, string) Readline()
         {
             String line;
-            
+
             try
             {
-                
+
                 line = _sr.ReadLine();
-               
-                
+
+
                 if (line != null)
                 {
                     return (line, null);
@@ -82,13 +82,13 @@ namespace Arithmetic
 
         public void WriteDict(string dictonary)
         {
-            
+
             try
             {
                 // Create the file, or overwrite if the file exists.
                 using (FileStream fs = File.Create(path))
                 {
-                    byte[] info = new UTF8Encoding(true).GetBytes(dictonary+"\n");
+                    byte[] info = new UTF8Encoding(true).GetBytes(dictonary + "\n");
                     // Add some information to the file.
                     fs.Write(info, 0, info.Length);
                 }
@@ -106,9 +106,9 @@ namespace Arithmetic
             {
                 using (StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default))
                 {
-                    sw.Write(text +"\n") ;
+                    sw.Write(text + ";");
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
@@ -116,4 +116,3 @@ namespace Arithmetic
         }
     }
 }
-

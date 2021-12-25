@@ -10,10 +10,10 @@ namespace Arithmetic
         public char Chars { get; set; }
         public int Frequency { get; set; }
         
-        public BigDecimal Low { get; set; }
-        public BigDecimal High { get; set; }
+        public decimal Low { get; set; }
+        public decimal High { get; set; }
 
-        public BigDecimal Range { get; set; }
+        public double Range { get; set; }
 
         public Node(char chars, int frequency)
         {
