@@ -104,14 +104,15 @@ namespace Arithmetic
         
         }
 
-        public void WriteText(byte[] text)
+        public void WriteText(byte[] text, byte[] zero)
         {
             try
             {
                 using (FileStream fs=new FileStream(path, FileMode.Create))
                 {
                     fs.Write(text,0,text.Length);
-                 //   sw.BaseStream.Write(zero, 0, zero.Length);
+                    //fs.Write(zero, 0, zero.Length);
+                 
                     fs.Close();
                 }
             } 

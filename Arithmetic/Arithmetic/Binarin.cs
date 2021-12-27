@@ -30,23 +30,22 @@ namespace Arithmetic
 
         }
 
-        public (byte[], byte[]) ToByteInBig (string same)
+        public (byte[], byte[]) ToByteInBig (string same,string pref )
         {
-            int zero = 0;
 
             while (same[0] == '0')
             {
-                    zero++;
+                   
                     same = same.Remove(0, 1);
                 if (same == "")
                 {
-                    BigInteger bigZer = BigInteger.Parse(zero.ToString());
+                    BigInteger bigZer = BigInteger.Parse('-' + pref);
                     return (null, bigZer.ToByteArray());
                 }
             }
            
-                BigInteger intsame = BigInteger.Parse(same);
-            BigInteger bigZero = BigInteger.Parse(zero.ToString()); 
+            BigInteger intsame = BigInteger.Parse(same);
+            BigInteger bigZero = BigInteger.Parse('-'+pref); 
                 return (intsame.ToByteArray(), bigZero.ToByteArray());
             
             

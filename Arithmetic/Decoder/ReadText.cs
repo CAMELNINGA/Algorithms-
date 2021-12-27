@@ -64,15 +64,17 @@ namespace Decoder
 
                 //Read the first line of text
                 line = _sr.ReadLine();
+                text = line;
                 //Continue to read until you reach end of file
                 while (line != null)
                 {
                     string line1 = line;
                     //write the line to console window
-                    text = text + "\n" + line;
+                    
                     //Read the next line
                     line = _sr.ReadLine();
-                    
+                    text = text + "\n" + line;
+
                     if (line1=="" && line == "")
                     {
                         

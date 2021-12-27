@@ -18,6 +18,7 @@ namespace Arithmetic
         Binarin binarin { get; set; }
 
         public string Same { get; set; }
+        public string Cnt { get; set; }
         
         public  Arithmetic(List<Node>nodes, ReadText read)
         {
@@ -25,6 +26,7 @@ namespace Arithmetic
             readText = read;
             binarin = new Binarin();
             Same = "";
+            Cnt = "";
         }
 
         public string Start()
@@ -46,8 +48,8 @@ namespace Arithmetic
             }
             var ret = WriteText();
             byte[] text, zero;
-            (text, zero) = binarin.ToByteInBig(Same);
-            readText.WriteText(text);
+            (text, zero) = binarin.ToByteInBig(Same,Cnt);
+            readText.WriteText(text,zero);
             return ret;
         }
 
@@ -60,18 +62,12 @@ namespace Arithmetic
                 {
                      Low  = node.Low;
                     High = node.High;
+                    break;
                 }
             }
-            int len = int.MaxValue;
-            foreach (Node i in Nodes)
-            {
-                if (i.Low.ToString().Length - 2 < len)
-                {
-                    len = i.Low.ToString().Length;
-                }
-            }
+            
 
-            WrSamePart(len);
+            WrSamePart();
            
 
             decimal range = High - Low;
@@ -81,7 +77,7 @@ namespace Arithmetic
 
                 node.Low = low;
                 var r = range * (decimal)(node.Range);
-                Low = low + r;
+                low = low + r;
                 node.High = low;
             }
         }
@@ -94,7 +90,7 @@ namespace Arithmetic
         }
 
 
-        private void WrSamePart(int len)
+        private void WrSamePart()
         {
             string same = "";
             string sLow = Low.ToString();
@@ -113,12 +109,12 @@ namespace Arithmetic
                 if ( sLow[i]==sHigh[i]) same += sLow[i];
                 else
                 {
-                    if (same.Length >=len)
-                    {
-                        DelSamePart(same, sLow, sHigh);
-                        
-                        Same = Same + same;
-                    }
+
+                    DelSamePart(same, sLow, sHigh);
+
+                    Same = Same + same;
+                    Cnt = Cnt + same.Length;
+
                     break;
                 }
             }
@@ -167,6 +163,7 @@ namespace Arithmetic
             if (same.Length != 0)
             {
                 Same = Same + same;
+                Cnt = Cnt + same.Length;
                 return same;
             }
             else

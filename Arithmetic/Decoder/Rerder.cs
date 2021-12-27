@@ -32,15 +32,17 @@ namespace Decoder
             }
            
             count = Convert.ToInt32(Nodes[Nodes.Count - 1].Range);
+
             Nodes.RemoveAt(Nodes.Count - 1);
-            Nodes = AddRangeNode();
+            Nodes = AddRangeNode(count);
             return (Nodes, count);
         }
-        private List<Node> AddRangeNode()
+        private List<Node> AddRangeNode(int count)
         {
             decimal low = 0;
             foreach (Node node in Nodes)
             {
+                node.Range = node.Range / count;
                 node.Low = low;
                 low += (decimal)node.Range;
                 node.High = low;

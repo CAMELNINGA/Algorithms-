@@ -23,7 +23,7 @@ namespace Arithmetic
                 string dict = "";
                 foreach (Node i in node)
                 {
-                    dict = dict + i.Chars + i.Range.ToString() + "\n";
+                    dict = dict + i.Chars + i.Frequency.ToString() + "\n";
                     Console.WriteLine("Char={0} Frequency={1} Range={2:R}", i.Chars, i.Frequency ,i.Range);
                 }
                 text.WriteDict(dict);

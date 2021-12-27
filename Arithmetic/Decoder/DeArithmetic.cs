@@ -30,17 +30,9 @@ namespace Decoder
         }
         public string Start()
         {
-            string Text = "";
-            int len = int.MaxValue;
-            foreach(Node i in Nodes){
-                if (i.Low.ToString().Length - 2 < len)
-                {
-                    len = i.Low.ToString().Length;
-                }
-            }
-            string data = Same.Substring(len);
-            decimal ddata = Convert.ToDecimal("0," + data);
-           for(int i =0; i < Count; i++)
+            string text = "";
+            decimal ddata = Convert.ToDecimal("0," + Same);
+           for(int i =0; i < Count+1; i++)
             {
                 string sameRangeText = "";
                
@@ -50,66 +42,45 @@ namespace Decoder
                     {
                         sameRangeText=sameRangeText + node.Chars;
                         C = node.Chars;
+                        break;
                     }
                 }
-                if (sameRangeText.Length == 1)
-                {
-                   len= Recount(C, sameRangeText,len);
-                    Text = Text + C;
-                }
-                else
-                {
-                    len++;
-                }
-                if (Same.Length > len)
-                {
-                    data = Same.Substring(len);
-                    ddata = Convert.ToDecimal("0," + data);
-                }
-                else
-                {
-                    data = Same;
-                    ddata = Convert.ToDecimal("0," + data);
-                }
+                text = text + sameRangeText;
+                Recount();
+               ddata = Convert.ToDecimal("0," + Same);
+                
                 
             }
-            return Text;
+            return text;
         }
 
-        private int Recount(char c, string data, int len)
+        private void Recount()
         {
             foreach (Node node in Nodes)
             {
-                if (node.Chars == c)
+                if (node.Chars == C)
                 {
                     Low = node.Low;
                     High = node.High;
                 }
             }
 
-
-            DellSamePart(data);
-
-
+            DellSamePart();
 
             decimal range = High - Low;
-
+            var low = Low;
             foreach (Node node in Nodes)
             {
-
-                node.Low = Low;
+                node.Low = low;
                 var r = range * (decimal)(node.Range);
-                Low = Low + r;
-                node.High = Low;
-                if (node.Low.ToString().Length - 2 < len)
-                {
-                    len = node.Low.ToString().Length;
-                }
+                low = low + r;
+                node.High = low;
+                
             }
-            return len;
+            
         }
 
-        private void DellSamePart(string samepart)
+        private void DellSamePart()
         {
             string same = "";
             string sLow = Low.ToString();
@@ -123,27 +94,30 @@ namespace Decoder
             {
                 length = sLow.Length;
             }
-            for (int i = 3; i < length; i++)
+            for (int i = 2; i < length; i++)
             {
-                if (sLow[i] == sHigh[i]) same += sLow[i - 1];
+                if (sLow[i] == sHigh[i]) same += sLow[i ];
                 else
                 {
-                    if (same.Length != 0)
+                  
+                    while(same.Length != 0&& same[0]==sLow[2])
                     {
-                        Same = Same.Remove(0,same.Length);
-                        DelSamePart(samepart, sLow, sHigh);
+                        Same = Same.Remove(0, 1);
+                        (sLow,sHigh)=DelSamePart(same, sLow, sHigh);
+                        same=same.Remove(0, 1);
                     }
+                    
                     break;
                 }
             }
         }
-        private void DelSamePart(string samepart, string sLow, string sHigh)
+        private (string,string) DelSamePart(string samepart, string sLow, string sHigh)
         {
-            sLow = sLow.Remove(2, samepart.Length);
-            sHigh = sHigh.Remove(2, samepart.Length);
+            sLow = sLow.Remove(2, 1);
+            sHigh = sHigh.Remove(2, 1);
             Low = Convert.ToDecimal(sLow);
             High = Convert.ToDecimal(sHigh);
-
+            return (sLow, sHigh);
         }
     }
 }
