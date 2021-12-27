@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace Decoder
@@ -9,12 +12,14 @@ namespace Decoder
     {
         public string path { get; set; }
         private StreamReader _sr { get; set; }
+        private string filepath { get; set; }
         public ReadText()
         {
             path = "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\decodfile_" + DateTime.Now.Hour + ".txt";
         }
         public void CrStreamReader(string filepath)
         {
+            this.filepath = filepath;
             StreamReader sr = new StreamReader(filepath);
             _sr = sr;
         }
@@ -46,31 +51,75 @@ namespace Decoder
 
             }
         }
-        public (string, string) Readtext(string filepath)
+        public (string, string, string) ReadDict(string dictpath,string filepath)
         {
             String line;
+            String text = "";
+            
+            try
+            {
+                string tex = "";
+                //Pass the file path and file name to the StreamReader constructor
+                CrStreamReader(dictpath);
+
+                //Read the first line of text
+                line = _sr.ReadLine();
+                //Continue to read until you reach end of file
+                while (line != null)
+                {
+                    string line1 = line;
+                    //write the line to console window
+                    text = text + "\n" + line;
+                    //Read the next line
+                    line = _sr.ReadLine();
+                    
+                    if (line1=="" && line == "")
+                    {
+                        
+                        
+                        _sr.Close();
+                       tex= Readtext(filepath);
+                        line = null;
+                       
+                        
+                    }
+
+                }
+
+                
+                
+                return (text, tex, null);
+            }
+            catch (Exception e)
+            {
+                return (null, null,"Exception: " + e.Message);
+
+            }
+        }
+
+        string Readtext(string path)
+        {
+            byte[] buffer = File.ReadAllBytes(path);
+            BigInteger text = new BigInteger(buffer);
+            string te = text.ToString();
+            return te;
+        }
+        public (string, string) Readtext()
+        {
+           
             String text = "";
             try
             {
                 //Pass the file path and file name to the StreamReader constructor
-                StreamReader sr = new StreamReader(filepath);
+               
                 //Read the first line of text
-                line = sr.ReadLine();
-                text = line;
-                //Continue to read until you reach end of file
-                while (line != null)
-                {
-                    //write the line to console window
+                
+                byte[] bytes =File.ReadAllBytes(filepath);
+                
+                text = Encoding.UTF8.GetString(bytes);
 
-                    //Read the next line
-                    line = sr.ReadLine();
-                    text = text + line;
 
-                }
 
-                //close the file
-                sr.Close();
-                CrStreamReader(filepath);
                 return (text, null);
             }
             catch (Exception e)
@@ -79,6 +128,8 @@ namespace Decoder
 
             }
         }
+
+        
 
         public void WriteDict(string dictonary)
         {
@@ -114,5 +165,6 @@ namespace Decoder
                 Console.WriteLine(ex.ToString());
             }
         }
+        
     }
 }

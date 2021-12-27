@@ -27,14 +27,16 @@ namespace Arithmetic
                     Console.WriteLine("Char={0} Frequency={1} Range={2:R}", i.Chars, i.Frequency ,i.Range);
                 }
                 text.WriteDict(dict);
+                text.WriteText(length.ToString());
+                
                 Arithmetic arithmetic = new Arithmetic(node,text);
                 arithmetic.Start();
-                text.WriteText(length.ToString());
                 decimal low;
                 decimal high;
                 (low, high) = arithmetic.Count();
                 Console.WriteLine("low={0}", low);
                 Console.WriteLine("high={0}", high);
+                Console.WriteLine(arithmetic.Same);
             }
             else
             {

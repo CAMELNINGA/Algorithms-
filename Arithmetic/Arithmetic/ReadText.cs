@@ -8,10 +8,13 @@ namespace Arithmetic
     class ReadText
     {
         public string path { get; set; }
+        public string dpath { get; set; }
         private StreamReader _sr {get;set;}
         public ReadText()
         {
             path = "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\codfile_" + DateTime.Now.Hour + ".txt";
+
+            dpath = "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\dicfile_" + DateTime.Now.Hour + ".txt";
         }
         public void CrStreamReader (string filepath)
         {
@@ -86,7 +89,7 @@ namespace Arithmetic
             try
             {
                 // Create the file, or overwrite if the file exists.
-                using (FileStream fs = File.Create(path))
+                using (FileStream fs = File.Create(dpath))
                 {
                     byte[] info = new UTF8Encoding(true).GetBytes(dictonary+"\n");
                     // Add some information to the file.
@@ -98,15 +101,18 @@ namespace Arithmetic
             {
                 Console.WriteLine(ex.ToString());
             }
+        
         }
 
-        public void WriteText(string text)
+        public void WriteText(byte[] text)
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default))
+                using (FileStream fs=new FileStream(path, FileMode.Create))
                 {
-                    sw.Write(text +"\n") ;
+                    fs.Write(text,0,text.Length);
+                 //   sw.BaseStream.Write(zero, 0, zero.Length);
+                    fs.Close();
                 }
             } 
             catch (Exception ex)
@@ -114,6 +120,22 @@ namespace Arithmetic
                 Console.WriteLine(ex.ToString());
             }
         }
+        public void WriteText(string text)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(dpath, true, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(text+'\n' + '\n');
+                    sw.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
     }
 }
 

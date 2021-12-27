@@ -14,11 +14,17 @@ namespace Arithmetic
         decimal Low { get; set; }
 
         decimal High { get; set; }
+
+        Binarin binarin { get; set; }
+
+        public string Same { get; set; }
         
         public  Arithmetic(List<Node>nodes, ReadText read)
         {
             Nodes = nodes;
             readText = read;
+            binarin = new Binarin();
+            Same = "";
         }
 
         public string Start()
@@ -29,16 +35,19 @@ namespace Arithmetic
             {
                 line = line + "\n";
                 var c = line.ToCharArray();
-                for(int i=0; i < c.Length; i++)
+                for(int i=0; i < c.Length; i++) 
                 {
+                    
                     Recount(c[i]);
                 }
                 (line, exp) = readText.Readline();
+          
 
             }
-
-            readText.ClouseSR();
-           var ret = WriteText();
+            var ret = WriteText();
+            byte[] text, zero;
+            (text, zero) = binarin.ToByteInBig(Same);
+            readText.WriteText(text);
             return ret;
         }
 
@@ -53,15 +62,27 @@ namespace Arithmetic
                     High = node.High;
                 }
             }
-            WrSamePart();
+            int len = int.MaxValue;
+            foreach (Node i in Nodes)
+            {
+                if (i.Low.ToString().Length - 2 < len)
+                {
+                    len = i.Low.ToString().Length;
+                }
+            }
+
+            WrSamePart(len);
+           
+
             decimal range = High - Low;
-            foreach (Node node in Nodes)
+            var low = Low;
+            foreach(Node node in Nodes)
             {
 
-                node.Low = Low;
+                node.Low = low;
                 var r = range * (decimal)(node.Range);
-                Low = Low + r;
-                node.High = Low;
+                Low = low + r;
+                node.High = low;
             }
         }
 
@@ -73,7 +94,7 @@ namespace Arithmetic
         }
 
 
-        private void WrSamePart()
+        private void WrSamePart(int len)
         {
             string same = "";
             string sLow = Low.ToString();
@@ -87,15 +108,16 @@ namespace Arithmetic
             {
                 length = sLow.Length;
             }
-            for (int i=3; i < length; i++)
+            for (int i=2; i < length; i++)
             {
-                if (sLow[i] == sHigh[i]) same += sLow[i-1];
+                if ( sLow[i]==sHigh[i]) same += sLow[i];
                 else
                 {
-                    if (same.Length != 0)
+                    if (same.Length >=len)
                     {
                         DelSamePart(same, sLow, sHigh);
-                        readText.WriteText(same);
+                        
+                        Same = Same + same;
                     }
                     break;
                 }
@@ -109,6 +131,7 @@ namespace Arithmetic
             sHigh=sHigh.Remove(2,samepart.Length);
             Low = Convert.ToDecimal(sLow);
             High = Convert.ToDecimal(sHigh);
+            /*
             if (sLow.Length > sHigh.Length)
             {
                 var r = sLow.Length - sHigh.Length;
@@ -120,7 +143,7 @@ namespace Arithmetic
                 var r = sHigh.Length-sLow.Length ;
                 sHigh = sHigh.Remove(sLow.Length-1, r);
                 High = Convert.ToDecimal(sHigh);
-            }
+            }*/
         }
         
         public string WriteText()
@@ -137,14 +160,13 @@ namespace Arithmetic
             {
                 length = sLow.Length;
             }
-            for (int i = 0; i < length; i++)
+            for (int i = 2; i < length; i++)
             {
                 if (sLow[i] == sHigh[i]) same += sLow[i];
             }
             if (same.Length != 0)
             {
-               
-                    readText.WriteText(same);
+                Same = Same + same;
                 return same;
             }
             else
