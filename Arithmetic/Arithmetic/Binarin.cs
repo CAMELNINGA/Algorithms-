@@ -14,7 +14,7 @@ namespace Arithmetic
 
             while (code.Length % 8 != 0)
             {
-                code = "0" + code;
+                code =  code+"0";
             }
             List<bool> bools = new List<bool>();
 

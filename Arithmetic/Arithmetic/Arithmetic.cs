@@ -127,19 +127,8 @@ namespace Arithmetic
             sHigh=sHigh.Remove(2,samepart.Length);
             Low = Convert.ToDecimal(sLow);
             High = Convert.ToDecimal(sHigh);
-            /*
-            if (sLow.Length > sHigh.Length)
-            {
-                var r = sLow.Length - sHigh.Length;
-                sLow = sLow.Remove(sHigh.Length-1, r);
-                Low = Convert.ToDecimal(sLow);
-            }
-            else if (sLow.Length < sHigh.Length)
-            {
-                var r = sHigh.Length-sLow.Length ;
-                sHigh = sHigh.Remove(sLow.Length-1, r);
-                High = Convert.ToDecimal(sHigh);
-            }*/
+            Console.WriteLine("sLow={0} sHigh={0}", Low, High);
+           
         }
         
         public string WriteText()

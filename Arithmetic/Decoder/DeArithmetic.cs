@@ -100,7 +100,7 @@ namespace Decoder
                 else
                 {
                   
-                    while(same.Length != 0&& same[0]==sLow[2])
+                    while(same.Length != 0 && Same[0]==sLow[2])
                     {
                         Same = Same.Remove(0, 1);
                         (sLow,sHigh)=DelSamePart(same, sLow, sHigh);
@@ -117,6 +117,7 @@ namespace Decoder
             sHigh = sHigh.Remove(2, 1);
             Low = Convert.ToDecimal(sLow);
             High = Convert.ToDecimal(sHigh);
+            Console.WriteLine("sLow={0} sHigh={0}", Low, High);
             return (sLow, sHigh);
         }
     }
