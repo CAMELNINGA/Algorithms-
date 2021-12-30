@@ -12,6 +12,7 @@ namespace AlgaritmHaffmana
         List<TreeNode> node;
         public List<TreeNode> Count(char[] chr)
         {
+
             _count = new Dictionary<char, int>();
             for (int i = 0; i < chr.Length; i++)
             {
@@ -24,23 +25,33 @@ namespace AlgaritmHaffmana
                     _count.Add(Convert.ToChar(chr[i]), 1);
                 }
             }
+            Console.WriteLine("Counting end");
             node = new List<TreeNode>();
             foreach(var item in _count)
             {
-                node.Add(new TreeNode(item.Key, null, item.Value));
+                node.Add(new TreeNode(item.Key, item.Value));
             }
             node = node.OrderBy(n=>n.Frequency).ToList();
+            Console.WriteLine("Order and aad node end ");
             return node;
         }
 
-        public string  Coding(string text , Dictionary<TreeNode, string> keyValues)
+        public string  Coding(string text , Dictionary<TreeNode, string> dictionary)
         {
-            foreach (KeyValuePair<TreeNode, string> coding in keyValues)
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            foreach (KeyValuePair<TreeNode,string> i in dictionary)
             {
-                text = text.Replace(Convert.ToString(coding.Key.Chars),coding.Value);
+                d.Add(i.Key.Chars.ToString(), i.Value);
             }
-
-            return text;
+            string line;
+            string decode = "";
+            while (text != "")
+            {
+                line = text[0].ToString();
+                text = text.Remove(0, 1);
+                decode += d[line];
+            }
+            return decode;
         }
     }
 }

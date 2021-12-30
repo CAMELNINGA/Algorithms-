@@ -1,0 +1,13 @@
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.GeneratedMSBuildEditorConfig.editorconfig
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.AssemblyInfoInputs.cache
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.AssemblyInfo.cs
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.csproj.CoreCompileInputs.cache
+D:\Data\TIC\Heming\Decdoder\bin\Debug\netcoreapp3.1\Decdoder.exe
+D:\Data\TIC\Heming\Decdoder\bin\Debug\netcoreapp3.1\Decdoder.deps.json
+D:\Data\TIC\Heming\Decdoder\bin\Debug\netcoreapp3.1\Decdoder.runtimeconfig.json
+D:\Data\TIC\Heming\Decdoder\bin\Debug\netcoreapp3.1\Decdoder.runtimeconfig.dev.json
+D:\Data\TIC\Heming\Decdoder\bin\Debug\netcoreapp3.1\Decdoder.dll
+D:\Data\TIC\Heming\Decdoder\bin\Debug\netcoreapp3.1\Decdoder.pdb
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.dll
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.pdb
+D:\Data\TIC\Heming\Decdoder\obj\Debug\netcoreapp3.1\Decdoder.genruntimeconfig.cache

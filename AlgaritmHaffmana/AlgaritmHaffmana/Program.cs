@@ -15,16 +15,19 @@ namespace AlgaritmHaffmana
             string exept;
             ReadText text = new ReadText();
             
-            (s, exept) = text.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\testText.txt");
+            (s, exept) = text.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\test.txt");
             if (exept == null)
             {
-                Console.WriteLine("text={0}", s);
+                
                 char[] c = s.ToCharArray();
                 Reader read = new Reader();
                 List<TreeNode> node = read.Count(c);
                 Haffman haffman = new Haffman(node);
                 string code = read.Coding(s, haffman.keyValues);
-                text.WriteText(haffman.Dictinor, code);
+                text.WriteDict(haffman.Dictinor);
+                Binarin binarin = new Binarin();
+                
+                text.WriteText(binarin.ToByte(code));
                 Console.ReadLine();
             }
             else
