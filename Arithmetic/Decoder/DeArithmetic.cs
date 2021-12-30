@@ -35,10 +35,10 @@ namespace Decoder
            for(int i =0; i < Count+1; i++)
             {
                 string sameRangeText = "";
-               
+                Console.WriteLine("ddata={0}", ddata);
                 foreach (Node node in Nodes)
                 {
-                    if (node.Low<ddata && node.High > ddata)
+                    if (node.Low<ddata && node.High >= ddata)
                     {
                         sameRangeText=sameRangeText + node.Chars;
                         C = node.Chars;
@@ -113,11 +113,11 @@ namespace Decoder
         }
         private (string,string) DelSamePart(string samepart, string sLow, string sHigh)
         {
+            Console.WriteLine("sLow={0} sHigh={0}", Low, High);
             sLow = sLow.Remove(2, 1);
             sHigh = sHigh.Remove(2, 1);
             Low = Convert.ToDecimal(sLow);
             High = Convert.ToDecimal(sHigh);
-            Console.WriteLine("sLow={0} sHigh={0}", Low, High);
             return (sLow, sHigh);
         }
     }

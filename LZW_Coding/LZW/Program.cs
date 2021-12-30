@@ -7,7 +7,7 @@ namespace LZW
     {
         static void Main(string[] args)
         {
-            string test = "assaddasda";
+            string test = "assaddasdaadsfasfafs";
             Lzw lzw = new Lzw(test);
             Dictionary<string, int> keys = new Dictionary<string, int>();
             foreach(KeyValuePair<string, int> k in lzw.keys)
@@ -29,6 +29,7 @@ namespace LZW
             {
                 Console.WriteLine("Kye={0} Code={1}", keyValuePair.Key, keyValuePair.Value);
             }
+            Console.WriteLine(test);
             Console.WriteLine(deLzw.Text);
         }
     }

@@ -1,0 +1,14 @@
+D:\Data\TIC\Heming\Heming\bin\Debug\netcoreapp3.1\Heming.exe
+D:\Data\TIC\Heming\Heming\bin\Debug\netcoreapp3.1\Heming.deps.json
+D:\Data\TIC\Heming\Heming\bin\Debug\netcoreapp3.1\Heming.runtimeconfig.json
+D:\Data\TIC\Heming\Heming\bin\Debug\netcoreapp3.1\Heming.runtimeconfig.dev.json
+D:\Data\TIC\Heming\Heming\bin\Debug\netcoreapp3.1\Heming.dll
+D:\Data\TIC\Heming\Heming\bin\Debug\netcoreapp3.1\Heming.pdb
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.csproj.AssemblyReference.cache
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.GeneratedMSBuildEditorConfig.editorconfig
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.AssemblyInfoInputs.cache
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.AssemblyInfo.cs
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.csproj.CoreCompileInputs.cache
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.dll
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.pdb
+D:\Data\TIC\Heming\Heming\obj\Debug\netcoreapp3.1\Heming.genruntimeconfig.cache

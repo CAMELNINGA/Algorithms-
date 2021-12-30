@@ -1,37 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "dmath/1.6.1.93": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Deveel.Math.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Deveel.Math.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "dmath/1.6.1.93": {
-      "sha512": "CKxhmHuJ2Vg8pd9sAawLeWsXXg4x0JwqQqrBN2Ka2+8r3LhFjf3TN5l/Tbj7W2m6c1yQ9v46l9BLiAbtViy2DA==",
-      "type": "package",
-      "path": "dmath/1.6.1.93",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "dmath.1.6.1.93.nupkg.sha512",
-        "dmath.nuspec",
-        "lib/net20/Deveel.Math.dll",
-        "lib/net20/Deveel.Math.pdb/Deveel.Math.dll"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "dmath >= 1.6.1.93"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\Пользователь\\.nuget\\packages\\": {}
@@ -71,12 +45,6 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
-        "dependencies": {
-          "dmath": {
-            "target": "Package",
-            "version": "[1.6.1.93, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -95,17 +63,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"dmath 1.6.1.93\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "dmath",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

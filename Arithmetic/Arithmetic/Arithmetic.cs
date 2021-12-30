@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Deveel.Math;
+
 
 namespace Arithmetic
 {
@@ -127,7 +127,7 @@ namespace Arithmetic
             sHigh=sHigh.Remove(2,samepart.Length);
             Low = Convert.ToDecimal(sLow);
             High = Convert.ToDecimal(sHigh);
-            Console.WriteLine("sLow={0} sHigh={0}", Low, High);
+            Console.WriteLine("sLow={0} sHigh={1}", Low, High);
            
         }
         

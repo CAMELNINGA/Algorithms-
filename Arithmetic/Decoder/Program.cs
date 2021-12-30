@@ -10,7 +10,7 @@ namespace Decoder
             ReadText read = new ReadText();
             string dictonary, text, e;
         
-            (dictonary,text, e) = read.ReadDict("D:\\Data\\TIC\\Arithmetic\\Arithmetic\\dicfile_0.txt", "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\codfile_0.txt");
+            (dictonary,text, e) = read.ReadDict("D:\\Data\\TIC\\Arithmetic\\Arithmetic\\dicfile_18.txt", "D:\\Data\\TIC\\Arithmetic\\Arithmetic\\codfile_18.txt");
             if (e == null)
             {
                 int count;

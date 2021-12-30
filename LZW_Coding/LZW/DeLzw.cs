@@ -32,8 +32,8 @@ namespace LZW
         }
         public void Start()
         {
-            char[] c = Code.ToCharArray();
-            P = Keys[Convert.ToInt32(c[0].ToString())];
+            string[] c = Code.Split('.');
+            P = Keys[Convert.ToInt32(c[0])];
             AddText(P);
             C = Keys[Convert.ToInt32(c[1].ToString())];
             p_c = P + C;

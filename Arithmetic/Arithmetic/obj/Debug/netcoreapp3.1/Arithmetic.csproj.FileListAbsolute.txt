@@ -12,5 +12,3 @@ D:\Data\TIC\Arithmetic\Arithmetic\obj\Debug\netcoreapp3.1\Arithmetic.csproj.Core
 D:\Data\TIC\Arithmetic\Arithmetic\obj\Debug\netcoreapp3.1\Arithmetic.dll
 D:\Data\TIC\Arithmetic\Arithmetic\obj\Debug\netcoreapp3.1\Arithmetic.pdb
 D:\Data\TIC\Arithmetic\Arithmetic\obj\Debug\netcoreapp3.1\Arithmetic.genruntimeconfig.cache
-D:\Data\TIC\Arithmetic\Arithmetic\bin\Debug\netcoreapp3.1\Deveel.Math.dll
-D:\Data\TIC\Arithmetic\Arithmetic\obj\Debug\netcoreapp3.1\Arithmetic.csproj.CopyComplete

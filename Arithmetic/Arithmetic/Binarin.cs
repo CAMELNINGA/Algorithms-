@@ -36,7 +36,7 @@ namespace Arithmetic
             while (same[0] == '0')
             {
                    
-                    same = same.Remove(0, 1);
+                   
                 if (same == "")
                 {
                     BigInteger bigZer = BigInteger.Parse('-' + pref);

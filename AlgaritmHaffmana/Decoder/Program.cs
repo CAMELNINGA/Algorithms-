@@ -10,7 +10,8 @@ namespace Decoder
             string code, text,e;
             List<string> line = new List<string>();
             Reader reader = new Reader();
-            (line, e) = reader.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_0.txt");
+            (line, e) = reader.ReadDecode("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\dicfile_13.txt");
+            (text, e) = reader.Readtext("D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_13.txt");
             if (e == null)
             {
                
@@ -18,7 +19,7 @@ namespace Decoder
                 Dictionary<string, string> dictionary = new Dictionary<string, string>();
                 dictionary = decod.WDictonary(line);
                 
-                string detext = decod.Decode(dictionary, line[line.Count - 1]);
+                string detext = decod.Decode(dictionary, text);
                 reader.WriteDecode(detext);
             }
             else

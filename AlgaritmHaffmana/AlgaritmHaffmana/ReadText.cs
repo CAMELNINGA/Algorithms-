@@ -9,6 +9,8 @@ namespace AlgaritmHaffmana
 {
     class ReadText
     {
+        string path { get; set; }
+        string dpath { get; set; }
         public (string, string) Readtext(string filepath)
         {
             String line;
@@ -44,7 +46,7 @@ namespace AlgaritmHaffmana
 
          public void  WriteText(string dictonary, string text )
         {
-            string path = "D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_"+DateTime.Now.Hour+ ".txt";
+           
             try
             {
                 // Create the file, or overwrite if the file exists.
@@ -58,6 +60,46 @@ namespace AlgaritmHaffmana
                 
             }
 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        public void WriteDict(string dictonary)
+        {
+            path = "D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\codfile_" + DateTime.Now.Hour + ".txt";
+
+            dpath = "D:\\Data\\TIC\\AlgaritmHaffmana\\AlgaritmHaffmana\\dicfile_" + DateTime.Now.Hour + ".txt";
+            try
+            {
+                // Create the file, or overwrite if the file exists.
+                using (FileStream fs = File.Create(dpath))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes(dictonary + "\n");
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
+        public void WriteText(byte[] text)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(path, FileMode.Create))
+                {
+                    fs.Write(text, 0, text.Length);
+                    
+
+                    fs.Close();
+                }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());

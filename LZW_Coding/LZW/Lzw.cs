@@ -35,7 +35,7 @@ namespace LZW
         {
             char[] c = Text.ToCharArray();
             P = c[0].ToString();
-            AddCode(P);
+            Code=keys[P].ToString();
             if (c.Length > 1)
             {
                 C = c[1].ToString();
@@ -77,7 +77,7 @@ namespace LZW
         }
         private void AddCode(string ps)
         {
-            Code = Code + keys[ps];
+            Code = Code +'.'+ keys[ps];
         }
 
         
